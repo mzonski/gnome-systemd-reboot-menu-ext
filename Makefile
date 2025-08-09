@@ -28,5 +28,11 @@ install: $(NAME)@$(DOMAIN).zip
 	@[ -d ~/.local/share/gnome-shell/extensions ] || mkdir -p ~/.local/share/gnome-shell/extensions
 	@gnome-extensions install $(NAME)@$(DOMAIN).zip --force
 
+redeploy:
+	@rm -rf ~/.local/share/gnome-shell/extensions/$(NAME)@$(DOMAIN).zip
+	@ ./node_modules/typescript/bin/tsc
+	@$(MAKE) pack
+	@$(MAKE) install
+
 clean:
 	@rm -rf dist node_modules $(NAME)@$(DOMAIN).zip
