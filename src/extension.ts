@@ -33,7 +33,7 @@ import {
   gettext as _,
 } from 'resource:///org/gnome/shell/extensions/extension.js';
 
-const GRUB_CONFIG_PATH = "/boot/grub/grub.cfg"
+const GRUB_CONFIG_PATH = '/boot/grub/grub.cfg';
 
 export default class RebootToWindowsExtension extends Extension {
   private menu: any;
@@ -44,7 +44,7 @@ export default class RebootToWindowsExtension extends Extension {
   private counterIntervalId!: GLib.Source;
   private messageIntervalId!: GLib.Source;
   private sourceId!: number | null;
-  private manager!: any
+  private manager!: any;
 
   constructor(metadata: any) {
     super(metadata);
@@ -100,14 +100,14 @@ export default class RebootToWindowsExtension extends Extension {
   }
 
   enable() {
-  const ManagerInterface: string = `<node>
+    const ManagerInterface: string = `<node>
   <interface name="org.freedesktop.login1.Manager">
     <method name="Reboot">
       <arg type="b" direction="in"/>
     </method>
   </interface>
   </node>`;
-  this.manager = Gio.DBusProxy.makeProxyWrapper(ManagerInterface);
+    this.manager = Gio.DBusProxy.makeProxyWrapper(ManagerInterface);
     if (!panel.statusArea.quickSettings._system) {
       this.queueModifySystemItem();
     } else {
@@ -116,7 +116,7 @@ export default class RebootToWindowsExtension extends Extension {
   }
 
   disable() {
-    this.manager = null
+    this.manager = null;
     this.clearIntervals();
     this.rebootToWindowsItem?.destroy();
     this.rebootToWindowsItem = null;
@@ -127,32 +127,32 @@ export default class RebootToWindowsExtension extends Extension {
     }
   }
 
-  private get_windows_grub_entry(file_path : string) {
+  private get_windows_grub_entry(file_path: string) {
     const file = Gio.File.new_for_path(file_path);
 
-    let boot_entry = ""
-    let content = file.load_contents(null)[1]
+    let boot_entry = '';
+    let content = file.load_contents(null)[1];
     const contentsText = new TextDecoder('utf-8').decode(content);
     const arr = contentsText.split(/\r?\n/);
 
-    let menu_pattern = new RegExp("^\\s*menuentry ['\"]([^'\"]*)['\"]")
+    let menu_pattern = new RegExp('^\\s*menuentry [\'"]([^\'"]*)[\'"]');
 
-    arr.forEach((line : string) => {
-      let matches = menu_pattern.exec(line) 
-      if (matches != null && ! matches[1].toLowerCase().search("windows")){ 
-          boot_entry = matches[1]
-      }   
-    }
+    arr.forEach((line: string) => {
+        let matches = menu_pattern.exec(line);
+        if (matches != null && !matches[1].toLowerCase().search('windows')) {
+          boot_entry = matches[1];
+        }
+      },
     );
-    return boot_entry
-}
+    return boot_entry;
+  }
 
-  private async reboot(){
-    let windows_grub_entry = this.get_windows_grub_entry(GRUB_CONFIG_PATH)
-    const [, argv] = GLib.shell_parse_argv(`pkexec grub-reboot "${windows_grub_entry}"`)
-    const proc = Gio.Subprocess.new(argv, Gio.SubprocessFlags.NONE)
+  private async reboot() {
+    let windows_grub_entry = this.get_windows_grub_entry(GRUB_CONFIG_PATH);
+    const [, argv] = GLib.shell_parse_argv(`pkexec grub-reboot "${windows_grub_entry}"`);
+    const proc = Gio.Subprocess.new(argv!, Gio.SubprocessFlags.NONE);
     await proc.wait_check_async(null);
-    this.proxy?.RebootRemote(true);    
+    this.proxy?.RebootRemote(true);
   }
 
   private buildDialog(): ModalDialog.ModalDialog {

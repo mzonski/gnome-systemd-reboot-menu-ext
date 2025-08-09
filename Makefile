@@ -1,5 +1,5 @@
-NAME=rebootintoWindows
-DOMAIN=nimz.cool
+NAME=systemdrebootmenuext
+DOMAIN=zonni.pl
 
 .PHONY: all pack install clean
 

@@ -1,27 +1,27 @@
 {
-  "name": "reboot-into-Windows",
+  "name": "gnome-systemd-reboot-menu-ext",
   "version": "1.0.0",
-  "description": "This is a small Gnome extension that adds the ability to reboot directly to the UEFI.",
+  "description": "This is a small Gnome extension that adds the ability to reboot directly to the UEFI or Windows.",
   "type": "module",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/example/my-extension.git"
+    "url": "git+https://github.com/mzonski/gnome-systemd-reboot-menu-ext.git"
   },
-  "author": "Jolie <jolie@nimz.cool>",
+  "author": "Zonni <msn@zonni.pl>",
   "license": "GPL-3.0-only",
   "bugs": {
-    "url": "https://github.com/jusnim/rebootintowindows/issues"
+    "url": "https://github.com/mzonski/gnome-systemd-reboot-menu-ext/issues"
   },
-  "homepage": "https://github.com/jusnim/rebootintowindows",
+  "homepage": "https://github.com/mzonski/gnome-systemd-reboot-menu-ext",
   "sideEffects": false,
   "devDependencies": {
-    "eslint": "^8.57.0",
-    "eslint-plugin-jsdoc": "^48.2.1",
-    "typescript": "^5.6.2"
+    "eslint": "^9.33.0",
+    "eslint-plugin-jsdoc": "^52.0.4",
+    "typescript": "^5.9.2"
   },
   "dependencies": {
-    "@girs/gjs": "^4.0.0-beta.15",
-    "@girs/gnome-shell": "^46.0.2"
+    "@girs/gjs": "^4.0.0-beta.25",
+    "@girs/gnome-shell": "48.0.2"
   }
 }
