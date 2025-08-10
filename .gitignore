@@ -1,5 +1,24 @@
 .build/
 dist/
+out/
 node_modules/
-rebootintoWindows@nimz.cool.shell-extension.zip
-rebootintoWindows@nimz.cool.zip
+*@*.zip
+*.iws
+
+### IntelliJ ###
+.idea/$CACHE_FILE$
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
+.idea/httpRequests
+
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+.idea/**/dbnavigator.xml
+.idea/**/contentModel.xml

@@ -1,9 +1,9 @@
 {
-  "name": "RebootIntoWindows",
-  "description": "Reboot system into Windows\n\nIt is a fork of RebootToUEFI.",
+  "name": "SystemDRebootMenuExtended",
+  "description": "Reboot menu extended\n\nIt is a fork of RebootToWindows which is a fork of RebootToUEFI.",
   "license": "GPLv3",
-  "uuid": "rebootintowindows@nimz.cool",
-  "url": "https://github.com/jusnim/rebootintowindows",
-  "shell-version": ["45", "46", "47"],
-  "gettext-domain": "rebootintowindows@nimz.cool"
+  "uuid": "systemdrebootmenuext@zonni.pl",
+  "url": "https://github.com/mzonski/gnome-systemd-reboot-menu-ext",
+  "shell-version": ["45", "46", "47", "48"],
+  "gettext-domain": "systemdrebootmenuext@zonni.pl"
 }
