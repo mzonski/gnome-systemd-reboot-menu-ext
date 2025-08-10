@@ -11,15 +11,8 @@ node_modules: package.json
 dist/extension.js: node_modules
 	@ ./node_modules/typescript/bin/tsc
 
-compile-po: po/*.po
-	@for file in po/*.po; do \
-		mkdir -p dist/locale/$$(basename $$file .po)/LC_MESSAGES; \
-		msgfmt -o dist/locale/$$(basename $$file .po)/LC_MESSAGES/$(NAME)@$(DOMAIN).mo $$file; \
-	done
-
 $(NAME)@$(DOMAIN).zip: dist/extension.js
 	@cp src/metadata.json dist/
-	@$(MAKE) compile-po
 	@(cd dist && zip ../$(NAME)@$(DOMAIN).zip -9r .)
 
 pack: $(NAME)@$(DOMAIN).zip
