@@ -1,10 +1,10 @@
-**This is a fork of https://github.com/UbayGD/reboottouefi**
+**This is a fork of https://github.com/jusnim/rebootintowindows**
 
-# Reboot into Windows with GRUB
+# Reboot into UEFI/Windows from Gnome Power menu with SystemD
 
-This is a small Gnome extension that adds the ability to reboot directly into Windows with GRUB.
+This is a small Gnome extension that adds the ability to reboot directly into Windows or UEFI with SystemD.
 
-![Screenshot of the extension option in the Gnome 46 menu](images/gnome_46.png)
+![Screenshot of the extension option in the Gnome 48 menu](images/gnome_48.png)
 
 <br>
 
@@ -12,9 +12,11 @@ This is a small Gnome extension that adds the ability to reboot directly into Wi
 
 Requirements:
 
-- make
-- nodejs and npm
-- gettext
+- Nix package manager
+
+To enter development shell please run:
+
+`$ nix develop .`
 
 To build the extension run the following command:
 
