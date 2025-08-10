@@ -16,8 +16,6 @@
   "homepage": "https://github.com/mzonski/gnome-systemd-reboot-menu-ext",
   "sideEffects": false,
   "devDependencies": {
-    "eslint": "^9.33.0",
-    "eslint-plugin-jsdoc": "^52.0.4",
     "typescript": "^5.9.2"
   },
   "dependencies": {

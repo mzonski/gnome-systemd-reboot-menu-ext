@@ -5,7 +5,7 @@ DOMAIN=zonni.pl
 
 all: dist/extension.js
 
-node_modules: package.json
+node_modules:
 	npm install
 
 dist/extension.js: node_modules
@@ -29,3 +29,4 @@ redeploy:
 
 clean:
 	@rm -rf dist node_modules $(NAME)@$(DOMAIN).zip
+	@rm -rf ~/.local/share/gnome-shell/extensions/$(NAME)@$(DOMAIN).zip
